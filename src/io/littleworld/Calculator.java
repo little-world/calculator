@@ -1,8 +1,17 @@
 package io.littleworld;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Calculator extends JFrame {
+
+    JButton button = new JButton("OK");
+    JLabel display = new JLabel("display");
+
+    public Calculator() {
+        getContentPane().add(button, BorderLayout.SOUTH);
+        getContentPane().add(display, BorderLayout.NORTH);
+    }
 
     public static void main(String[] args) {
 	// write your code here
