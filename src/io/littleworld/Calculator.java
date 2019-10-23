@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class Calculator extends JFrame implements ActionListener {
 
 
-    JLabel display = new JLabel("display");
+    JLabel display = new JLabel("");
 
     public Calculator() {
 
@@ -41,6 +41,27 @@ public class Calculator extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        display.setText(e.getActionCommand());
+        String currentButton = e.getActionCommand();
+
+        switch (currentButton) {
+            // number state
+            case "0": case "1": case "2": case "3": case "4":
+            case "5": case "6": case "7": case "8": case "9":
+                display.setText(display.getText() + currentButton);
+                break;
+            //operator state
+            case "/": case "*": case "+": case "-":
+
+                break;
+            // calculator state
+            case "=":
+                break;
+            // reset state
+            case "C":
+                break;
+            // you should never come here
+            default:
+                System.out.println("System Error");
+        }
     }
 }
