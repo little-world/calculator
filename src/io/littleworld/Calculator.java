@@ -9,6 +9,9 @@ public class Calculator extends JFrame implements ActionListener {
 
 
     JLabel display = new JLabel("");
+    String operator;
+    int firstNumber;
+    int secondNumber;
 
     public Calculator() {
 
@@ -51,13 +54,34 @@ public class Calculator extends JFrame implements ActionListener {
                 break;
             //operator state
             case "/": case "*": case "+": case "-":
-
+                operator = currentButton;
+                firstNumber = Integer.parseInt(display.getText());
+                display.setText("");
                 break;
             // calculator state
             case "=":
+                secondNumber = Integer.parseInt(display.getText());
+                int result = 0;
+                switch (operator) {
+                    case "+":
+                        result = firstNumber + secondNumber;
+                        break;
+                    case "-":
+                        result = firstNumber - secondNumber;
+                        break;
+                    case "*":
+                        result = firstNumber * secondNumber;
+                        break;
+                    case "/":
+                        result = firstNumber / secondNumber;
+                        break;
+                }
+                display.setText(result + "");
                 break;
             // reset state
             case "C":
+                firstNumber = secondNumber = 0;
+                display.setText("");
                 break;
             // you should never come here
             default:
