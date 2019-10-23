@@ -7,14 +7,18 @@ import java.awt.event.ActionListener;
 
 public class Calculator extends JFrame implements ActionListener {
 
-    JButton button = new JButton("OK");
+
     JLabel display = new JLabel("display");
 
     public Calculator() {
+
+        JButton button = new JButton("OK");
         getContentPane().add(button, BorderLayout.SOUTH);
+        button.addActionListener(this);
+
         getContentPane().add(display, BorderLayout.NORTH);
 
-        button.addActionListener(this);
+
     }
 
     public static void main(String[] args) {
